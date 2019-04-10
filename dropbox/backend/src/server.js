@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const config = require('./config/database.json')
+const config = require('./config/database-example.json')
 const path = require('path')
 const cors = require('cors')
 
@@ -16,7 +16,7 @@ io.on('connection', socket => {
     })
 })
 
-mongoose.connect(config.connection, {
+mongoose.connect(process.env.MONGODB_URL || config.connection, {
     useNewUrlParser: true
 })
 
@@ -31,4 +31,4 @@ app.use('/files', express.static(path.resolve(__dirname, '..', 'tmp')))
 
 app.use(require('./routes'))
 
-server.listen(3333)
+server.listen(process.env.PORT || 3333)
