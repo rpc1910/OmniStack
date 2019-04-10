@@ -1,1 +1,1 @@
-web: npm run start-dropbox
+web: cd dropbox/backend && npm install && npm run start
