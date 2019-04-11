@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import { MdInsertDriveFile } from 'react-icons/md'
-import { distanceInWords } from 'date-fns'
-import pt from 'date-fns/locale/pt'
 import Dropzone from 'react-dropzone'
 import socket from 'socket.io-client'
 
@@ -9,6 +6,8 @@ import api from './../../services/api'
 
 import './styles.css'
 import logo from './../../assets/logo.svg'
+
+import ListItem from './../../components/ListItem'
 
 export default class Box extends Component {
 	state = {
@@ -55,7 +54,7 @@ export default class Box extends Component {
 		return (
 			<div id="box-container">
 				<header>
-					<img src={logo} alt="Dropbox"/>
+					<a href="/"><img src={logo} alt="Dropbox" /></a>
 					<h1>{this.state.box.title}</h1>
 				</header>
 
@@ -70,13 +69,7 @@ export default class Box extends Component {
 
 				<ul>
 					{ files && files.map(file => (
-						<li key={file._id}>
-							<a className="fileInfo" href={file.url} target="_blank">
-								<MdInsertDriveFile size={24} color="#a5cfff" />
-								<strong>{ file.title }</strong>
-							</a>
-							<span>há {distanceInWords(file.createdAt, new Date(), { locale: pt }) }</span>
-						</li>
+						<ListItem key={file._id} file={file} />
 					)) }
 				</ul>
 			</div>

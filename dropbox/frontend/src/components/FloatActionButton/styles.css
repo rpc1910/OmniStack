@@ -1,0 +1,18 @@
+.float-action-button {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+}
+
+.float-action-button a {
+    background: #7159c1;
+    display: block;
+    width: 50px;
+    text-align: center;
+    padding: 10px 0 8px 0;
+    border-radius: 50%;
+}
+
+.float-action-button a:hover {
+    opacity: 0.8;
+}

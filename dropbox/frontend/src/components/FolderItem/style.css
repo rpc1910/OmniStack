@@ -1,0 +1,38 @@
+#box-container ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#box-container ul li + li {
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+#box-container ul li .fileInfo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+#box-container ul li .fileInfo strong {
+  font-weight: normal;
+  font-size: 14px;
+  margin-left: 10px;
+  color: #333;
+}
+
+#box-container ul li .fileInfo span {
+  background: #7159c1;
+  color: #fff;
+  font-weight: bold;
+  padding: 4px 8px;
+  margin-left: 10px;
+  border-radius: 8px;
+}
+
+#box-container ul li span {
+  color: #999;
+  font-size: 13px;
+}
