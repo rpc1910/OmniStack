@@ -28,10 +28,10 @@ export default class Boxes extends Component {
                 </header>
 
                 <ul>
-                    {boxes && boxes.map( box => <FolderItem key={box._id} folder={box} /> ) }
+                    {boxes && boxes.map( box => <FolderItem key={box._id} folder={box} onClick={() => this.props.history.push(`/box/${box._id}`)} /> ) }
                 </ul>
 
-                <FloatActionButton />
+                <FloatActionButton onClick={ () => this.props.history.push('/create') } />
             </div>
         );
     }
