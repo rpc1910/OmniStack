@@ -1,6 +1,11 @@
 const Box = require('./../models/Box')
 
 class BoxController {
+    async list(req, res) {
+        const boxes = await Box.find().sort({ createdAt: -1})
+        return res.json(boxes)
+    }
+
     async show(req, res) {
         const box = await Box.findById(req.params.id).populate({
             path: 'files',
